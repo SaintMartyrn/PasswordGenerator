@@ -75,8 +75,52 @@ function determineNumbers(){
 
 
 
+  //Function used to take all the input from the previous functions and generate a password using a random number generator and 
+ //the charAt method 
+function generatePassword(){
+  determineLength();
+  console.log(passwordLength);
+  determineUppercase();
+  console.log(uppercaseCheck);
+  determineNumbers();
+  console.log(numberCheck);
+  determineSpecial();
+  console.log(specialCheck);
 
-var generateBtn = document.querySelector("#generate");
+  var characters = lowercaseChar;
+  var password = "";
+  if (uppercaseCheck && numberCheck && specialCheck){
+    characters += uppercaseChar + numberChar + specialChar;
+  
+  }else if (uppercaseChar && numberCheck){
+characters += uppercaseChar + numberChar;
+
+  }else if (numberCheck && specialCheck){
+  characters += numberChar + specialChar;
+
+}else if (uppercaseCheck && specialCheck){
+  characters += uppercaseChar + specialChar;
+
+}else if (uppercaseCheck){
+characters += uppercaseChar;
+
+}else if (numberCheck){
+  characters += numberChar;
+
+}else if (specialCheck){
+  characters += specialChar;
+
+  }else{
+    characters === lowercaseChar;
+  }
+
+  for(var i = 0; i < passwordLength; i++){
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+return password;
+}
+
+
 
 // Write password to the #password input
 function writePassword() {
