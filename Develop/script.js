@@ -23,8 +23,59 @@ function determinerLength(){
     alert("The next three screens will ask you what types of characters you would like to be included in your password.\nIf you choose 'No' for all, your password will only contain lowercase letters.");
   }
   return passwordLength;
-
 }
+// function used to determine whether the user wants to include uppercase characters in the password
+function determineUppercase(){
+  uppercaseCheck = prompt("Do you want to include uppercase letters in your password? \n(Yes or No)");
+    uppercaseCheck = uppercaseCheck.toLowerCase();
+
+    if (uppercaseCheck === null || uppercaseCheckn === ""){
+      alert("please answer Yes or No");
+      determineUppercase();
+
+    } else if (uppercaseCheck === "yes" || uppercaseCheck ==="y"){
+      uppercaseCheck = true;
+      return uppercaseCheck;
+
+    }else if (uppercaseCheck === "no" || uppercaseCheck ==="n"){
+      uppercaseCheck = false;
+      return uppercaseCheck;
+
+    }else {
+      alert("Please answer Yes or No");
+      determineUppercase();
+    }
+    return uppercaseCheck;
+  }
+
+  //Function used to determine whether the user wants to include numbers in the password
+function determineNumbers(){
+  numberCheck = prompt("Do you want to include numbers in your password? \n(Yes or No)");
+    numberCheck = numberCheck.toLowerCase();
+
+    if (numberCheck === null || numberCheck === ""){
+      alert("Please answer Yes or No");
+      determineNumbers();
+
+    }else if (numberCheck === "yes" || numberCheck ==="y"){
+      numberCheck = true;
+      return numberCheck;
+
+    }else if (numberCheck === "no" || numberCheck ==="n"){
+      numberCheck = false;
+      return numberCheck;
+
+    }else {
+      alert('Please answer Yes or No');
+      determineNumbers();
+    }
+    return numberCheck;
+  }
+
+
+
+
+
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
